@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--record id="project_task_view_form_bt" model="ir.ui.view">
+        <field name="name">project.task.view.form.inherit.bt</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='tag_ids']" position="after">
+            	<field name="task_status"/>
+            	<field name="task_status_color" invisible="1"/>
+            </xpath>
+        </field>
+    </record-->
+    
+    <record id="project_task_view_form_fsm_bt" model="ir.ui.view">
+        <field name="name">project.task.form.fsm.inherit.bt</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="industry_fsm.project_task_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='project_id']" position="after">
+            	<field name="task_status"/>
+            	<field name="task_status_color" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    
+    <record id="project_task_view_gantt_bt" model="ir.ui.view">
+        <field name="name">project.task.view.gantt.inherit.bt</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" eval="ref('project_enterprise.project_task_view_gantt')"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='project_color']" position="after">
+                <field name="task_status_color"/>
+            </xpath>
+            <xpath expr="//gantt" position="attributes">
+                <attribute name="color">task_status_color</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
