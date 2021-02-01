@@ -10,9 +10,10 @@
 """,
     'author' : 'Your odoo partner',
     'website' : 'http://yourodoopartner.com/',
-    'depends': ['base'],
+    'depends': ['base', 'account'],
     'images': [],
-    'data': ['views/res_partner_view.xml'
+    'data': ['views/res_partner_view.xml',
+             'views/account_view.xml'
     ],
     'installable': True,
     'auto_install': False,

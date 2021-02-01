@@ -16,14 +16,17 @@
             	</group>
             	<group>
             		<group colspan="5">
-            			<field name="bni" />
-            			<field name="plomberie_lachine"/>
-            			<field name="assurance"/>
-            			<field name="henry"/>
-            			<field name="a_de_gagne"/>
-            			<field name="extension"/>
-            			<field name="residential_commercial"/>
-            			<field name="groupe_de_taxes_description"/>
+            			<field name="supplier_rank" invisible="1"/>
+            			<field name="customer_rank" invisible="1"/>
+            			<field name="bni" attrs="{'invisible': [('supplier_rank','>', 0)]}"/>
+            			<field name="plomberie_lachine" attrs="{'invisible': [('supplier_rank','>', 0)]}"/>
+            			<field name="assurance" attrs="{'invisible': [('supplier_rank','>', 0)]}"/>
+            			<field name="henry" attrs="{'invisible': [('supplier_rank','>', 0)]}"/>
+            			<field name="a_de_gagne" attrs="{'invisible': [('supplier_rank','>', 0)]}"/>
+            			<field name="extension" attrs="{'invisible': [('supplier_rank','>', 0)]}"/>
+            			<field name="residential_commercial" attrs="{'invisible': [('supplier_rank','>', 0)]}"/>
+            			<!--  <field name="groupe_de_taxes_description"/>-->
+            			<field name="expense_account_code_description" attrs="{'invisible': [('customer_rank','>', 0)]}"/>
             		</group>
             	</group>
                 </page>
@@ -32,6 +35,3 @@
     </record>
 
 </odoo>
-<!-- 
-attrs="{'invisible': [('customer_rank','>', 0)]}"
- -->

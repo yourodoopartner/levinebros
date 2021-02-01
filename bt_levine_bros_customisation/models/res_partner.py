@@ -15,4 +15,7 @@ class ResPartner(models.Model):
     extension = fields.Char(string="Extension")
     residential_commercial = fields.Selection([("R", "Residential"), ("C", "Commercial"), ("none", "None")],string="Residential/Commercial")
 
-    groupe_de_taxes_description = fields.Char(string="Groupe de taxes - Description")
+#     groupe_de_taxes_description = fields.Char(string="Groupe de taxes - Description")
+    expense_account_code_description = fields.Char(string="Compte de dépenses - Code et description")
+    
+    
