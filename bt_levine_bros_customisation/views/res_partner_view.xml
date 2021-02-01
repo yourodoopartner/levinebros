@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+	<record id="view_partner_form_inherit_view" model="ir.ui.view">
+        <field name="name">Import Partner Details</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='internal_notes']" position="after">
+            	<page name="other_info" string="Other Info">
+            	<group>
+            		<group colspan="5">
+            			<field name="import_id" invisible="1"/>
+            			<field name="code"/>
+            		</group>
+            	</group>
+            	<group>
+            		<group colspan="5">
+            			<field name="bni" />
+            			<field name="plomberie_lachine"/>
+            			<field name="assurance"/>
+            			<field name="henry"/>
+            			<field name="a_de_gagne"/>
+            			<field name="extension"/>
+            			<field name="residential_commercial"/>
+            			<field name="groupe_de_taxes_description"/>
+            		</group>
+            	</group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
+<!-- 
+attrs="{'invisible': [('customer_rank','>', 0)]}"
+ -->

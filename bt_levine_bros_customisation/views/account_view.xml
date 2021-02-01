@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_account_form_inherit_view" model="ir.ui.view">
+        <field name="name">account.account.form.inherit</field>
+        <field name="model">account.account</field>
+        <field name="inherit_id" ref="account.view_account_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='misc']" position="before">
+               <field name="property_account_position_id" options="{'no_create': True, 'no_open': True}"/>
+         	</xpath>
+        </field>
+    </record>
+
+   
+</odoo>
