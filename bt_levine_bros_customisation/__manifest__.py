@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'BroadTech Levine_bros Customisation',
-    'version': '0.1',
+    'version': '0.2',
     'category': '',
     'summary': """Levine_bros Customisation""",
     'license':'LGPL-3',
