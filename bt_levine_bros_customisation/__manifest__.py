@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'BroadTech Levine_bros Customisation',
-    'version': '0.2',
+    'version': '0.1',
     'category': '',
     'summary': """Levine_bros Customisation""",
     'license':'LGPL-3',
@@ -13,7 +13,8 @@
     'depends': ['base', 'account'],
     'images': [],
     'data': ['views/res_partner_view.xml',
-             'views/account_view.xml'
+             'views/account_view.xml',
+             'views/product_view.xml'
     ],
     'installable': True,
     'auto_install': False,
