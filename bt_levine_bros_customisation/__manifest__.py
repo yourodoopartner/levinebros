@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'BroadTech Levine_bros Customisation',
-    'version': '0.1',
+    'version': '0.1.2',
     'category': '',
     'summary': """Levine_bros Customisation""",
     'license':'LGPL-3',
@@ -10,11 +10,12 @@
 """,
     'author' : 'Your odoo partner',
     'website' : 'http://yourodoopartner.com/',
-    'depends': ['base', 'account'],
+    'depends': ['base', 'account', 'sale', 'product'],
     'images': [],
     'data': ['views/res_partner_view.xml',
              'views/account_view.xml',
-             'views/product_view.xml'
+             'views/product_view.xml',
+             'views/sale_view.xml'
     ],
     'installable': True,
     'auto_install': False,

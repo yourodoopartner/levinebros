@@ -6,16 +6,20 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
+        	
             <xpath expr="//page[@name='internal_notes']" position="after">
             	<page name="other_info" string="Other Info">
             	<group>
-            		<group colspan="5">
+            		<group>
             			<field name="import_id" invisible="1"/>
             			<field name="code"/>
             		</group>
+            		<group>
+            			<field name="customer_referral"/>
+            		</group>
             	</group>
             	<group>
-            		<group colspan="5">
+            		<group>
             			<field name="supplier_rank" invisible="1"/>
             			<field name="customer_rank" invisible="1"/>
             			<field name="bni" attrs="{'invisible': [('supplier_rank','>', 0)]}"/>
@@ -31,7 +35,23 @@
             	</group>
                 </page>
             </xpath>
+            <xpath expr="//group/group/field[@name='category_id']" position="after">
+               <field name="preferred_lang"/>
+         	</xpath>
         </field>
     </record>
-
+	
+	
+	<record id="view_res_partner_filter_inherit_view" model="ir.ui.view">
+        <field name="name">res.partner.search.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="after">
+               <field name="street" string="Street"/>
+         	</xpath>
+        </field>
+    </record>
+    
+    
 </odoo>

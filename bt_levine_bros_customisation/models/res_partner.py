@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import api, fields, models
+from odoo.osv import expression
 
 class ResPartner(models.Model):
     _inherit = "res.partner"
@@ -17,5 +18,30 @@ class ResPartner(models.Model):
 
 #     groupe_de_taxes_description = fields.Char(string="Groupe de taxes - Description")
     expense_account_code_description = fields.Char(string="Compte de dépenses - Code et description")
+    
+    customer_referral = fields.Selection(
+        [("google", "Google"),
+         ("yelp", "Yelp"),
+         ("friend", "Friend"),
+         ("yellow_pages", "Yellow Pages"),
+         ("bni", "B.N.I"),
+         ("truck", "Truck"),
+         ("facebook", "Facebook"),
+         ("linkedin", "Linkedin"),
+         ("instagram", "Instagram")], string="Customer referral")
+    preferred_lang = fields.Selection([("English", "English"), ("Francais", "Francais")], string="Preferred Language")
+    
+    
+    @api.model
+    def _name_search(self, name, args=None, operator='ilike', limit=100, name_get_uid=None):
+        args = args or []
+        domain = []
+        if name:
+            domain = ['|', ('name', operator, name), ('street', operator, name)]
+        partner_ids = self._search(expression.AND([domain, args]), limit=limit, access_rights_uid=name_get_uid)
+        return models.lazy_name_get(self.browse(partner_ids).with_user(name_get_uid))
+    
+    
+    
     
     

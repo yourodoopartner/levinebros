@@ -50,7 +50,11 @@ class ProductTemplate(models.Model):
     effective_date = fields.Date(string="Effective Date")
     future_use_1 = fields.Char(string="Reserved for Future Use #1")
     future_use_2 = fields.Char(string="Reserved for Future Use #2")
-
-       
     
+    
+class ProductTemplate(models.Model):
+    _inherit = "product.product"
+       
+    labour = fields.Boolean(string="Labour", default=False)
+ 
     
